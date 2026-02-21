@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Smart India Post</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-paper-plane"></i> Smart India Post
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html">Book a Post</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">We are here to help you with any queries regarding our services.</p>
+
+            <div class="contact-grid">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-cards">
+                    <div class="contact-card info-card animate-fade-in">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>Customer Helpline</h4>
+                            <p class="primary-text">1800-11-2011</p>
+                            <p class="secondary-text">Toll-free, 24/7 support</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card info-card animate-fade-in delay-1">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-envelope-open-text"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>Email Support</h4>
+                            <p class="primary-text">support@indiapost.gov.in</p>
+                            <p class="secondary-text">Response within 24 hours</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card info-card animate-fade-in delay-2">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <div class="card-details">
+                            <h4>Headquarters</h4>
+                            <p class="primary-text">Dak Bhawan, Sansad Marg</p>
+                            <p class="secondary-text">New Delhi, 110001</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="contact-card form-card animate-fade-in delay-2">
+                    <h3>Send us a Message</h3>
+                    <form id="contact-form" class="refined-contact-form">
+                        <div class="input-group-row">
+                            <div class="input-field">
+                                <label>Your Name</label>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Your Email</label>
+                                <input type="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label>Subject</label>
+                            <input type="text" placeholder="How can we help?" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="Type your message here..." required></textarea>
+                        </div>
+
+                        <div class="booking-captcha contact-captcha-box">
+                            <div class="captcha-row">
+                                <div class="captcha-display" id="contact-captcha-code">C3d4E</div>
+                                <button type="button" class="btn-refresh" id="contact-refresh-captcha">
+                                    <i class="fa-solid fa-rotate-right"></i>
+                                </button>
+                                <input type="text" id="contact-captcha-input" placeholder="Enter Captcha" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-primary btn-full">Send Inquiry <i
+                                class="fa-solid fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Smart India Post. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

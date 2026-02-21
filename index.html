@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart India Post | Next-Gen Delivery Management</title>
+
+    <!-- Google Fonts: Poppins (Modern & Clean) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-paper-plane"></i> Smart India Post
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="booking.html">Book a Post</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1 class="animate-fade-in">Fast, Secure, & Smart Delivery</h1>
+            <p class="animate-fade-in delay-1">Track your post instantly.</p>
+
+            <div class="tracking-container animate-fade-in delay-2">
+                <div class="tracking-tabs">
+                    <button class="tab-btn active" data-tab="consignment">Consignment ID</button>
+                    <button class="tab-btn" data-tab="money-order">Money Order</button>
+                    <button class="tab-btn" data-tab="complaint">Complaint ID</button>
+                </div>
+
+                <div class="tracking-content">
+                    <div id="consignment-tab" class="tab-content active">
+                        <label>Consignment Number</label>
+                        <input type="text" class="tracking-input" placeholder="ENTER CONSIGNMENT NUMBER" maxlength="13">
+                    </div>
+                    <div id="money-order-tab" class="tab-content">
+                        <label>Money Order Number (10 or 18 digits)</label>
+                        <input type="text" class="tracking-input" placeholder="ENTER MONEY ORDER NUMBER" maxlength="18">
+                    </div>
+                    <div id="complaint-tab" class="tab-content">
+                        <label>Complaint ID</label>
+                        <input type="text" class="tracking-input" placeholder="ENTER COMPLAINT ID" maxlength="15">
+                    </div>
+
+                    <div class="captcha-section">
+                        <div class="captcha-row">
+                            <div class="captcha-display" id="captcha-code">Qgd4V</div>
+                            <button class="btn-audio" title="Play Audio CAPTCHA">Play Audio CAPTCHA</button>
+                            <button class="btn-refresh" id="refresh-captcha" title="Refresh CAPTCHA">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                        </div>
+                        <div class="captcha-input-row">
+                            <input type="text" id="captcha-input" placeholder="Enter captcha">
+                            <button id="track-btn" class="search-btn">Search</button>
+                        </div>
+                    </div>
+                </div>
+                <p id="error-msg" class="error-msg"></p>
+            </div>
+        </div>
+        <!-- Decorative Background Wave -->
+        <div class="wave-container">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Tracking Result Section (Hidden by Default) -->
+    <section id="tracking-result" class="tracking-result hidden">
+        <div class="container">
+            <h2 class="section-title">Consignment Status</h2>
+            <div class="tracking-card">
+                <div class="shipment-info">
+                    <div class="info-item">
+                        <span class="label">Consignment No:</span>
+                        <span class="value" id="res-id">--</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Estimated Delivery:</span>
+                        <span class="value" id="res-date">--</span>
+                    </div>
+                </div>
+
+                <div class="timeline" id="timeline">
+                    <!-- Timeline items injected via JS -->
+                </div>
+
+                <div id="otp-action-container" class="otp-action hidden">
+                    <p>Your package is out for delivery. Please provide the OTP to the agent.</p>
+                    <button id="verify-delivery-btn" class="btn-primary">Verify Delivery</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Smart India Post. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- OTP Modal -->
+    <div id="otp-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Delivery Verification</h3>
+            </div>
+            <p>Enter the 4-digit OTP sent to your registered mobile.</p>
+            <div class="otp-inputs">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+                <input type="text" maxlength="1" class="otp-digit">
+            </div>
+            <button id="submit-otp-btn">Verify</button>
+            <p id="otp-message" class="otp-message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

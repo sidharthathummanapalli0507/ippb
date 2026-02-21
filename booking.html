@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Post | Smart India Post</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-paper-plane"></i> Smart India Post
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="booking.html" class="active">Book a Post</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Book a Post Section -->
+    <section id="book-post" class="book-post">
+        <div class="container">
+            <h2 class="section-title">Book a New Consignment</h2>
+
+            <div class="booking-container card">
+                <form id="booking-form" class="booking-form">
+                    <div class="form-grid">
+                        <!-- Sender Details -->
+                        <div class="form-section">
+                            <h3><i class="fa-solid fa-user-pen"></i> Sender Details</h3>
+                            <div class="input-row">
+                                <input type="text" placeholder="Full Name" required>
+                                <input type="tel" placeholder="Mobile Number" required>
+                            </div>
+                            <textarea placeholder="Full Address" required></textarea>
+                            <input type="text" placeholder="Pincode (6 digits)" maxlength="6" pattern="\d{6}" required>
+                        </div>
+
+                        <!-- Receiver Details -->
+                        <div class="form-section">
+                            <h3><i class="fa-solid fa-user-tag"></i> Receiver Details</h3>
+                            <div class="input-row">
+                                <input type="text" placeholder="Full Name" required>
+                                <input type="tel" placeholder="Mobile Number" required>
+                            </div>
+                            <textarea placeholder="Full Address" required></textarea>
+                            <div class="input-row">
+                                <input type="text" placeholder="Pincode (6 digits)" maxlength="6" pattern="\d{6}"
+                                    required>
+                                <input type="text" id="booking-digipin" placeholder="10-Digit DIGIPIN" maxlength="10"
+                                    pattern="\d{10}" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="form-divider">
+
+                    <!-- Parcel Details -->
+                    <div class="parcel-section">
+                        <h3><i class="fa-solid fa-box-open"></i> Parcel Details</h3>
+                        <div class="parcel-options">
+                            <div class="input-group">
+                                <label for="weight-input">Weight (Grams)</label>
+                                <input type="number" id="weight-input" placeholder="e.g. 500" min="1" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Service Type</label>
+                                <select>
+                                    <option>Speed Post</option>
+                                    <option>Registered Post</option>
+                                    <option>Business Parcel</option>
+                                </select>
+                            </div>
+                            <div class="price-card">
+                                <span>Estimated Price</span>
+                                <span id="price-value">₹0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Captcha Section (Repeated for Booking) -->
+                    <div class="booking-captcha">
+                        <div class="captcha-row">
+                            <div class="captcha-display" id="booking-captcha-code">A1b2C</div>
+                            <button type="button" class="btn-refresh" id="booking-refresh-captcha">
+                                <i class="fa-solid fa-rotate-right"></i>
+                            </button>
+                            <input type="text" id="booking-captcha-input" placeholder="Enter Captcha" required>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary btn-large">Confirm & Generate Consignment ID</button>
+                    </div>
+                </form>
+
+                <div id="booking-success" class="booking-success hidden">
+                    <div class="success-icon">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h3>Booking Successful!</h3>
+                    <p>Your Consignment Number is:</p>
+                    <div class="consignment-badge" id="new-consignment-id">CP000000000IN</div>
+                    <button class="btn-secondary" onclick="window.location.reload()">Book Another</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Smart India Post. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
